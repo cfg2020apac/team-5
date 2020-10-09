@@ -1,5 +1,6 @@
 window.onload = async(event) => {
-    console.log(activityId)
+    // console.log(activityId)
+    let activityId = window.location.href.substr(window.location.href.indexOf("?") + 1)
     activity = await getActivity(activityId);
     let activityStatus = false;
 
