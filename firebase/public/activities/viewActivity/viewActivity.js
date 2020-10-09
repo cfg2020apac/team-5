@@ -32,7 +32,7 @@ window.onload = async(event) => {
             let currPath = window.location.href
             currPath = currPath.substr(0, currPath.lastIndexOf('/'))
             currPath = currPath.substr(0, currPath.lastIndexOf('/'))
-            currPath = currPath + "/viewSignups/viewSignups.html"
+            currPath = currPath + "/viewSignups/viewSignups.html?" + activityId
             window.location.replace(currPath);
         } else if (activityStatus) {
             document.getElementById("sign-up-btn").classList.remove("btn-danger");

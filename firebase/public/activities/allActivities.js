@@ -66,3 +66,10 @@ function viewAllMyActivities() {
     }
     window.location.replace(currPath + "?viewMy");
 }
+
+function doCreateActivity() {
+    let currPath = window.location.href
+    currPath = currPath.substr(0, currPath.lastIndexOf('/'))
+    currPath = currPath + "/createActivity/createActivity.html"
+    window.location.replace(currPath);
+}
