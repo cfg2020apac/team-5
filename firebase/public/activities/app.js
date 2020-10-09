@@ -8,36 +8,27 @@ async function init() {
     });
 }
 
-function createActivity(userId, name, description, mediaArray, startTime, endTime, description, tags, location) {
-    if (!verifyAdmin(userId)) {
-        return;
-    }
-
-    const activity = {
-        name : name,
-        description : description,
-        startBy : startTime,
-        endBy : endTime,
-        createdBy : userId,
-        mediaArray : mediaArray,
-        tags : tags,
-        location : location
-    };
-
-    console.log(activity);
-    db.collection("activities").add(activity);
+function createActivity(userId, activity) {
+    const db = firebase.firestore();
+    verifyAdmin(userId).then(result => {
+        if (!result) {
+            return;
+        }
+        console.log(activity);
+        const doc = db.collection("activities").add(activity);
+        console.log(doc.id);
+    });
 }
 
-function verifyAdmin(userId) {
+async function verifyAdmin(userId) {
     const db = firebase.firestore();
-    db.collection("users").doc(userId).get().then((doc) => {
-        console.log(doc.data());
-        if (doc.data().type == "Admin") {
-            return true;
-        } else {
-            return false;
-        }
-    });
+    doc = await db.collection("users").doc(userId).get();
+    console.log(doc.data());
+    if (doc.data().type == "Admin") {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function editActivity(activityId, newActivity) {
@@ -52,7 +43,7 @@ function editActivity(activityId, newActivity) {
 function joinActivity(userId, activityId) {
     const db = firebase.firestore();
     //if (verifyAdmin(userId)) {
-        //return
+    //return
     //}
     db.collection("activities").doc(activityId).update({
         participants : firebase.firestore.FieldValue.arrayUnion(userId)
@@ -67,5 +58,3 @@ async function getActivity(activityId) {
     let doc = await db.collection("activities").doc(activityId).get();
     return doc.data();
 }
-
-joinActivity(userId, "v9LfMexlDZCkYrtYOU4o");

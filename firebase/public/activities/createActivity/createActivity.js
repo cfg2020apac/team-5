@@ -1,16 +1,5 @@
-var activity = {
-    "name": "aaaaaaaa",
-    "createdBy": "aaaaaaaa",
-    "image": "aaaaaaaa",
-    "startBy": "aaaaaaaa",
-    "endBy": "aaaaaaaa",
-    "description": "aaaaaaaa",
-    "mediaArray": ["aaaaaaaa", "aaaaaaaa"],
-    "tags": ["aaaaaaaa", "aaaaaaaa"],
-    "location": "aaaaaaaa"
-}
-
 function submitActivity() {
+    var activity = {};
     activity.name = document.getElementById("activity_name").value;
     activity.startBy = document.getElementById("activity_startdate").value;
     activity.endBy = document.getElementById("activity_enddate").value;
@@ -18,6 +7,8 @@ function submitActivity() {
     activity.location = document.getElementById("activity_location").value;
     activity.tags = document.getElementById("activity_tags").value;
     activity.image = document.getElementById("activity_image").value;
+
+    createActivity(userId, activity);
 
     console.log(activity);
 }
