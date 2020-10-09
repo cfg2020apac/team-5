@@ -1,5 +1,3 @@
-activityId = "2Inw0kJiy1WcSFlLrpEG";
-
 function saveActivity() {
     const activity = {};
     activity.name = document.getElementById("activity_name").value;
@@ -22,6 +20,6 @@ window.onload = async(event) => {
     document.getElementById("activity_enddate").value = activity.endBy;
     document.getElementById("activity_description").value = activity.description;
     document.getElementById("activity_location").value = activity.location;
-    document.getElementById("activity_tags").value = csvToArray(activity.tags);
+    document.getElementById("activity_tags").value = delimitArray(activity.tags);
     document.getElementById("activity_image").value = activity.image;
 };

@@ -1,4 +1,5 @@
 userId = "QnnMBwySsSyNQ1MsVfuR";
+activityId = "ttd4xPYNkmZShxuLKvL4";
 
 async function getAllActivities() {
     const db = firebase.firestore();
@@ -94,7 +95,8 @@ function delimitArray(list) {
     list.forEach(tag => {
         string = tag + "," + string;
     });
-    return string;
+
+    return string.substr(0, string.length-1);
 }
 
 function csvToArray(string) {
