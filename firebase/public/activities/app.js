@@ -8,8 +8,8 @@ async function init() {
     });
 }
 
-function createActivity(name, description, mediaArray, startTime, endTime, description, tags, location) {
-    if (!verifyAdmin()) {
+function createActivity(userId, name, description, mediaArray, startTime, endTime, description, tags, location) {
+    if (!verifyAdmin(userId)) {
         return;
     }
 
@@ -28,7 +28,7 @@ function createActivity(name, description, mediaArray, startTime, endTime, descr
     db.collection("activities").add(activity);
 }
 
-function verifyAdmin() {
+function verifyAdmin(userId) {
     const db = firebase.firestore();
     db.collection("users").doc(userId).get().then((doc) => {
         console.log(doc.data());
@@ -42,10 +42,24 @@ function verifyAdmin() {
 
 function editActivity(activityId, newActivity) {
     const db = firebase.firestore();
-    if (!verifyAdmin()) {
+    if (!verifyAdmin(userId)) {
+        return
     }
 
     db.collection("activities").doc(activityId).update(newActivity);
 }
 
-editActivity("Zdb7Vtd9OvDwXwgqZBn4", {endBy:"itworks"});
+function joinActivity(userId, activityId) {
+    const db = firebase.firestore();
+    //if (verifyAdmin(userId)) {
+        //return
+    //}
+    db.collection("activities").doc(activityId).update({
+        participants : firebase.firestore.FieldValue.arrayUnion(userId)
+    });
+}
+
+function LeaveActivity() {
+}
+
+joinActivity(userId, "v9LfMexlDZCkYrtYOU4o");
