@@ -1,4 +1,5 @@
 getAllActivities().then(activities => {
+    console.log(activities);
     var queryString = window.location.search;
     var urlParams = new URLSearchParams(queryString);
     var page_number = urlParams.get('page_number')
