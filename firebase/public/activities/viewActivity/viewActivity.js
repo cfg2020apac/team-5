@@ -5,7 +5,10 @@ window.onload = async(event) => {
     let activityStatus = false;
 
     if (activity.participants) {
-        if (activity.participants.includes(userId)) {
+        if (verifyAdmin(userId)) {
+            document.getElementById("sign-up-btn").classList.remove("btn-danger");
+            document.getElementById("sign-up-btn").innerHTML = "View Participants";
+        } else if (activity.participants.includes(userId)) {
             activityStatus = true;
             document.getElementById("sign-up-btn").classList.add("btn-danger");
             document.getElementById("sign-up-btn").innerHTML = "Unregister"

@@ -10,12 +10,11 @@ getAllActivities().then(activities => {
     } else {
         isViewAll = true
     }
-    console.log(isViewAll)
     var table = document.getElementById("part-list");
 
     if (isViewAll) {
-        document.getElementById("option1").checked = true;
-        document.getElementById("option2").checked = false;
+        document.getElementById("option1").setAttribute("checked", "checked");
+        document.getElementById("option2").removeAttribute("checked");
 
         for (i = activities.length - 1; i >= 0; i--) {
             var row = table.insertRow(1);
@@ -29,8 +28,8 @@ getAllActivities().then(activities => {
             cell4.innerHTML = "<a href='" + "viewActivity/viewActivity.html?" + activities[i].id + "'>View</a>"
         }
     } else {
-        document.getElementById("option1").checked = false;
-        document.getElementById("option2").checked = true;
+        document.getElementById("option1").removeAttribute("checked");
+        document.getElementById("option2").setAttribute("checked", "checked");
 
         for (i = activities.length - 1; i >= 0; i--) {
             if (activities[i].participants) {
@@ -51,11 +50,19 @@ getAllActivities().then(activities => {
 });
 
 function viewAllActivities() {
-    window.location.replace(window.location.href + "?viewAll");
-    location.reload();
+    let currPath = window.location.href
+    var idx = currPath.indexOf("?")
+    if (idx > 0) {
+        currPath = currPath.substr(0, idx)
+    }
+    window.location.replace(currPath + "?viewAll");
 }
 
 function viewAllMyActivities() {
-    window.location.replace(window.location.href + "?viewMy");
-    location.reload();
+    let currPath = window.location.href
+    var idx = currPath.indexOf("?")
+    if (idx > 0) {
+        currPath = currPath.substr(0, idx)
+    }
+    window.location.replace(currPath + "?viewMy");
 }
