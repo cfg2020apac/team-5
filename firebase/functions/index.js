@@ -148,3 +148,21 @@ app.post('/activity', FBAuth, (req, res) => {
 
 require("./routes/user-reg")(app,db,firebase);
 exports.api = functions.https.onRequest(app);
+
+const messaging = firebase.messaging();
+messaging.requestPermission()
+.then(function(){
+  console.log("Have permissions");
+  return messaging.getToken();
+})
+.then(function(token) {
+  console.log(token); // send to server instead, use Firebase Cloud Messaging api with this token
+})
+.catch(function(err) {
+  console.log("Error Occured");
+})
+
+messaging.onMessage(function(payload){
+  console.log('onMessage: ', payload);
+
+});
