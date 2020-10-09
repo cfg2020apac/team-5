@@ -1,3 +1,5 @@
+
+
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const express = require("express");
@@ -145,6 +147,7 @@ app.post('/activity', FBAuth, (req, res) => {
     return res.status(500).json({error: err});
   })
 })
+
 
 
 require("./routes/user-reg")(app,db,firebase);
