@@ -1,3 +1,5 @@
+userId = "QnnMBwySsSyNQ1MsVfuR";
+
 async function init() {
     const db = firebase.firestore();
     documents = await db.collection("activities").get();
@@ -7,17 +9,9 @@ async function init() {
 }
 
 function createActivity(name, description, mediaArray, startTime, endTime, description, tags, location) {
-    const db = firebase.firestore();
-
-    let isAdmin;
-    db.collection("users").doc(userId).get().then((doc) => {
-        console.log(doc.data());
-        if (doc.data().type == "Admin") {
-            isAdmin = true;
-        } else {
-            isAdmin = false;
-        }
-    });
+    if (!verifyAdmin()) {
+        return;
+    }
 
     const activity = {
         name : name,
@@ -34,4 +28,24 @@ function createActivity(name, description, mediaArray, startTime, endTime, descr
     db.collection("activities").add(activity);
 }
 
-init();
+function verifyAdmin() {
+    const db = firebase.firestore();
+    db.collection("users").doc(userId).get().then((doc) => {
+        console.log(doc.data());
+        if (doc.data().type == "Admin") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+}
+
+function editActivity(activityId, newActivity) {
+    const db = firebase.firestore();
+    if (!verifyAdmin()) {
+    }
+
+    db.collection("activities").doc(activityId).update(newActivity);
+}
+
+editActivity("Zdb7Vtd9OvDwXwgqZBn4", {endBy:"itworks"});
