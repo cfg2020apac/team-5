@@ -12,7 +12,7 @@ var activity = {
 
 activityId = "Zdb7Vtd9OvDwXwgqZBn4";
 
-window.onload = async (event) => {
+window.onload = async(event) => {
     activity = await getActivity(activityId);
     console.log(activity);
     document.getElementById("activity_image").src = activity.image;
