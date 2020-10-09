@@ -3771,6 +3771,26 @@ fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
+
+h1 {
+  font-weight: 400;
+  padding-top: 0;
+  margin-top: 0;
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  background: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+  background-repeat: no-repeat;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 legend {
   box-sizing: border-box;
   color: inherit;
@@ -4394,6 +4414,7 @@ a {
   flex-grow: 1;
 }
 .u-input {
+  border-radius: 25px;
   display: block;
   width: 100%;
   padding: 10px 12px;
@@ -5144,16 +5165,14 @@ a {
 .u-input-round {
   border-radius: 4px;
 }
-.u-input-rectangle {
-  border-radius: 0;
-}
+
 .u-form-select-wrapper {
   position: relative;
 }
 .u-form-select-wrapper select {
   -webkit-appearance: none;
      -moz-appearance: none;
-          appearance: none;
+          appearance: none
 }
 .u-form-select-wrapper .u-caret {
   position: absolute;
@@ -29993,6 +30012,7 @@ a.u-link.u-text-hover-grey-90:hover {
     {
         margin-top: 20px;
         margin-bottom: 20px;
+
     }
     .u-btn
     {
@@ -30145,8 +30165,10 @@ a.u-link.u-text-hover-grey-90:hover {
     .u-image:not(.u-shading) > .u-container-layout > .u-btn:active,
     .u-btn:active
     {
-        background-color: #387cbd;
+
+        background-color: rgb(237, 40, 70);
         color: #e6e6e6;
+        
     }
     .u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item) > blockquote,
     .u-gradient > .u-container-layout > blockquote,
