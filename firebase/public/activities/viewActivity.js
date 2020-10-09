@@ -10,8 +10,11 @@ var activity = {
     "location": "12 Ang Mo "
 }
 
-window.onload = (event) => {
-    console.log('page is fully loaded');
+activityId = "Zdb7Vtd9OvDwXwgqZBn4";
+
+window.onload = async (event) => {
+    activity = await getActivity(activityId);
+    console.log(activity);
     document.getElementById("activity_image").src = activity.image;
     document.getElementById("activity_name").innerHTML = activity.name;
     document.getElementById("activity_startdate").innerHTML = activity.startBy;
@@ -21,10 +24,10 @@ window.onload = (event) => {
     var divContainer = document.getElementById("container-tags");
 
     for (i in activity.tags) {
-        var text = document.createTextNode("test");
-        divContainer.append(text);
-        // divContainer.append(activity.tags[i]);
+        divContainer.append(activity.tags[i]);
     }
 };
 
-function signup() {}
+function signup() {
+    joinActivity(userId, activityId);
+}

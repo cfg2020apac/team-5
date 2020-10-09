@@ -62,4 +62,10 @@ function joinActivity(userId, activityId) {
 function LeaveActivity() {
 }
 
+async function getActivity(activityId) {
+    const db = firebase.firestore();
+    let doc = await db.collection("activities").doc(activityId).get();
+    return doc.data();
+}
+
 joinActivity(userId, "v9LfMexlDZCkYrtYOU4o");
