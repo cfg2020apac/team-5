@@ -1,22 +1,21 @@
 window.onload = async(event) => {
     // console.log(activityId)
-    let activityId = window.location.href.substr(window.location.href.indexOf("?") + 1)
-    activity = await getActivity(activityId);
+    let activityIdLoad = window.location.href.substr(window.location.href.indexOf("?") + 1)
+    activity = await getActivity(activityIdLoad);
     let activityStatus = false;
 
-    if (activity.participants) {
-        if (verifyAdmin(userId)) {
-            document.getElementById("sign-up-btn").classList.remove("btn-danger");
-            document.getElementById("sign-up-btn").innerHTML = "View Participants";
-        } else if (activity.participants.includes(userId)) {
-            activityStatus = true;
-            document.getElementById("sign-up-btn").classList.add("btn-danger");
-            document.getElementById("sign-up-btn").innerHTML = "Unregister"
-        }
+    const isAdmin = await verifyAdmin(userId);
+    if (isAdmin) {
+        document.getElementById("edit").classList.remove("hidden");
+        document.getElementById("sign-up-btn").classList.remove("btn-danger");
+        document.getElementById("sign-up-btn").innerHTML = "View Participants";
+    } else if (activity.participants.includes(userId)) {
+        activityStatus = true;
+        document.getElementById("sign-up-btn").classList.add("btn-danger");
+        document.getElementById("sign-up-btn").innerHTML = "Unregister"
     }
 
     console.log(activity);
-    //document.getElementById("activity_image").src = activity.image;
     document.getElementById("activity_image").src = "https://picsum.photos/200/200";
     document.getElementById("activity_name").innerHTML = activity.name;
     document.getElementById("activity_startdate").innerHTML = activity.startBy;
@@ -27,22 +26,27 @@ window.onload = async(event) => {
     for (i in activity.tags) {
         divContainer.append(activity.tags[i]);
     }
+
     document.getElementById("sign-up-btn").addEventListener("click", (e) => {
-        if (verifyAdmin(userId)) {
+        if (isAdmin) {
             let currPath = window.location.href
             currPath = currPath.substr(0, currPath.lastIndexOf('/'))
             currPath = currPath.substr(0, currPath.lastIndexOf('/'))
-            currPath = currPath + "/viewSignups/viewSignups.html?" + activityId
+            currPath = currPath + "/viewSignups/viewSignups.html?" + activityIdLoad
             window.location.replace(currPath);
         } else if (activityStatus) {
             document.getElementById("sign-up-btn").classList.remove("btn-danger");
             document.getElementById("sign-up-btn").innerHTML = "Sign Up";
-            leaveActivity(userId, activityId);
+            leaveActivity(userId, activityIdLoad);
         } else {
             document.getElementById("sign-up-btn").classList.add("btn-danger");
             document.getElementById("sign-up-btn").innerHTML = "Unregister"
-            joinActivity(userId, activityId);
+            joinActivity(userId, activityIdLoad);
         }
         activityStatus = !activityStatus;
+    });
+
+    document.getElementById("edit").addEventListener("click", () => {
+        location.href = "../editingActivity/editActivity.html?" + activities[i].id;
     });
 };

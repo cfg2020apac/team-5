@@ -13,6 +13,7 @@ function saveActivity() {
 
 
 window.onload = async(event) => {
+    let activityIdLoad = window.location.href.substr(window.location.href.indexOf("?") + 1)
     activity = await getActivity(activityId);
     console.log(activity);
     document.getElementById("activity_name").value = activity.name;

@@ -29,7 +29,7 @@ function createActivity(userId, activity) {
             return;
         }
         console.log(activity);
-        var storageRef = require('@google-cloud/storage');
+        var storageRef = firebase.storage();
         var picRef = storageRef.child(activity.image);
         console.log(picRef);
         const doc = db.collection("activities").add(activity);
@@ -63,12 +63,14 @@ function editActivity(activityId, newActivity) {
 function joinActivity(userId, activityId) {
     const db = firebase.firestore();
     db.collection("activities").doc(activityId).get().then(doc => {
-        if (doc.data().participants.includes(userId)) {
-            throw "Already signed up";
-        } else {
-            db.collection("activities").doc(activityId).update({
-                participants : firebase.firestore.FieldValue.arrayUnion(userId)
-            });
+        if (doc.data().participants) {
+            if (doc.data().participants.includes(userId)) {
+                throw "Already signed up";
+            } else {
+                db.collection("activities").doc(activityId).update({
+                    participants : firebase.firestore.FieldValue.arrayUnion(userId)
+                });
+            }
         }
     });
 }
