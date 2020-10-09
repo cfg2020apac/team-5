@@ -28,7 +28,7 @@ async function renderList(userId, activityId) {
         //document.write("<div class='col-6'>");
         //document.write("<h5 id='activity_name' class='value-text'>" + persons[i].name + "</h5>");
         //document.write("</div>");
-        document.getElementById("part-list").innerHTML += '<tr><th scope="row">' + (i + 1) + '</th><td scope="row">' + persons[i].name  + '</td></tr>';
+        document.getElementById("part-list").innerHTML += '<tr><th scope="row">' + (i + 1) + '</th><td scope="row">' + persons[i].name + '</td><td scope="row">' + persons[i].email + '</td></tr>';
         //document.write("</div>");
         //document.write("<div class='row'>");
         //document.write("<div class='col-6'>");
