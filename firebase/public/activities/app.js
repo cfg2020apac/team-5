@@ -15,12 +15,16 @@ async function getAllActivities() {
 }
 
 function createActivity(userId, activity) {
+    console.log("Test")
     const db = firebase.firestore();
     verifyAdmin(userId).then(result => {
         if (!result) {
             return;
         }
         console.log(activity);
+        var storageRef = require('@google-cloud/storage');
+        var picRef = storageRef.child(activity.image);
+        console.log(picRef);
         const doc = db.collection("activities").add(activity);
         console.log(doc.id);
     });
