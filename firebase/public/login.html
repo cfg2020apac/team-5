@@ -19,7 +19,9 @@
         <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
         <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
         <script defer src="/__/firebase/init.js"></script>
+
         <title>Login</title>
+
         <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@400;700&display=swap');
 
@@ -184,7 +186,7 @@ html {
                 window.parent.postMessage("resize", "*");
             }
 
-        </script>\
+        </script>
     </head>
 
 
@@ -192,16 +194,15 @@ html {
         <div id="svg_wrap"></div>
 
         <h1>Welcome to Blossom World</h1>
-        <form name="loginform" method='POST' get='http://localhost:5000/login' id='login'>
+        <form id="login" id="loginform" method='POST' action="http://localhost:5000/login">
             <section>
                 <p>Sign In</p>
                 <input type="text" name='email' placeholder="Email" />
                 <input type="password" name='password' placeholder="Password" />
             </section>
-
-
             <div class='button' id='submit'><input type="submit" value=' Log In  &rarr;' {background-color:transparent}></div>
         </form>
+        <!--<script src="../functions/index.js"></script>-->
         <script defer src="login.js"></script>
     </body>
 </html>
