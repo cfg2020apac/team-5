@@ -3781,6 +3781,7 @@ h1 {
 
 body {
   background: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+  background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
   font-family: 'Noto Sans', sans-serif;
@@ -30141,7 +30142,7 @@ a.u-link.u-text-hover-grey-90:hover {
     .u-image:not(.u-shading) > .u-container-layout > .u-btn,
     .u-btn
     {
-        background-color: #478ac9;
+        background-color: rgb(237, 40, 70);
         color: #ffffff;
     }
     .u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item) > .u-btn:hover,
