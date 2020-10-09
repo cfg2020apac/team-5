@@ -1,5 +1,13 @@
-userId = "QnnMBwySsSyNQ1MsVfuR";
-activityId = "ttd4xPYNkmZShxuLKvL4";
+let activityId = "ttd4xPYNkmZShxuLKvL4";
+let userId = null;
+
+firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+        userId = user.uid;
+    } else {
+        userId = null;
+    }
+});
 
 async function getAllActivities() {
     const db = firebase.firestore();
@@ -15,7 +23,6 @@ async function getAllActivities() {
 }
 
 function createActivity(userId, activity) {
-    console.log("Test")
     const db = firebase.firestore();
     verifyAdmin(userId).then(result => {
         if (!result) {

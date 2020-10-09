@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" type="image/png"
+    href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link rel='stylesheet' type='text/css' href='signup.css'>
+
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+  <link rel="mask-icon" type=""
+    href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111" />
+
+
+  <title>User Registeration</title>
+
+
+  <script>
+    window.console = window.console || function (t) { };
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+  </script>
+</head>
+
+
+<body translate="no">
+  <div id="svg_wrap"></div>
+
+  <h1>Welcome to Blossom World</h1>
+  <form action='http://localhost:5000/register' method='POST'>
+
+    <section>
+      <p>Basic Information</p>
+      <input type="text" name='firstname' placeholder="Firstname" />
+      <input type="text" name='surname' placeholder="Surname" />
+      <input type="text" name='email' placeholder="Email" />
+      <input type="text" name='password' placeholder="Password" />
+      <input type="text" name='confirm_password' placeholder="Confirm Password" />
+      <input type="text" name='phone' placeholder="Phone Number" />
+    </section>
+
+    <section>
+      <label for="gender">Gender: </label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <br> <label for="nationality">Nationality: </label>
+      <select id="nationality" name="nationality">
+        <option value="citizen">Singapore Citizen</option>
+        <option value="pr">Singapore Permament Citizen</option>
+        <option value="foreginer">Foreigner</option>
+      </select>
+
+      <label for="address">Address: </label>
+      <input type="text" name='address' placeholder="Address" />
+      <input type="text" name='postal' placeholder="Postal Code" />
+    </section>
+
+    <section>
+      <label for="race">Race: </label>
+      <select id="race" name="race" onChange='checkvalue(this.value)'>
+        <option value="chinese">Chinese</option>
+        <option value="malay">Malay</option>
+        <option value="indian">Indian</option>
+        <option value="eurasian">Eurasian</option>
+        <option value="others">Others</option>
+      </select>
+      <input type="text" id="race_sent" placeholder="Please Specify... " name="race_sent" style="display:none;" />
+
+      <br><label for="m_status">Marital Status: </label>
+      <select id="m_status" name="m_status">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="divorced_separated">Divorced/Separated</option>
+      </select>
+
+      <p>Children: </p>
+      <input type="number" name='children' placeholder="No. of children" min="0" max="20" />
+
+      <br> <label for="religion">Religion: </label>
+      <select id="religion" name="religion" onChange='checkvalue(this.value)'>
+        <option value="buddhism">Buddhism</option>
+        <option value="christian">Christian</option>
+        <option value="muslim">Mulism</option>
+        <option value="hinduism">Hinduism</option>
+        <option value="Freethinker">Freethinker</option>
+        <option value="Atheist">Atheist</option>
+        <option value="others">Others</option>
+      </select>
+      <br /><input type="text" id="religion_sent" placeholder="Please Specify... " name="religion_sent"
+        style="display:none;" />
+
+
+    </section>
+
+    <section>
+      <p>Spoken Languages: </p>
+      <input type="checkbox" id="mandarin" name="spoken[]" value="mandarin">
+      <label for="mandarin"> Mandarin</label><br>
+      <input type="checkbox" id="english" name="spoken[]" value="english">
+      <label for="english"> English</label><br>
+      <input type="checkbox" id="malay" name="spoken[]" value="malay">
+      <label for="malay"> Malay </label><br>
+      <input type="checkbox" id="tamil" name="spoken[]" value="tamil">
+      <label for="tamil"> Tamil </label><br>
+      <input type="checkbox" id="hokkein" name="spoken[]" value="hokkein">
+      <label for="hokkein"> Hokkein </label><br>
+      <input type="checkbox" id="cantonese" name="spoken[]" value="cantonese">
+      <label for="cantonese"> Cantonese </label><br>
+      <input type="checkbox" id="teochew" name="spoken[]" value="teochew">
+      <label for="teochew"> Teochew </label><br>
+
+      <br>
+      <p>Written Languages: </p>
+      <input type="checkbox" id="written_mandarin" name="written[]" value="Mandarin">
+      <label for="written_mandarin"> Mandarin</label><br>
+      <input type="checkbox" id="written_english" name="written[]" value="English">
+      <label for="written_english"> English</label><br>
+      <input type="checkbox" id="written_malay" name="written[]" value="Malay">
+      <label for="written_malay"> Malay </label><br>
+      <input type="checkbox" id="written_tamil" name="written[]" value="Tamil">
+      <label for="written_tamil"> Tamil </label><br>
+
+
+    </section>
+
+    <section>
+
+      <p>Interests: </p>
+      <input type="checkbox" id="ed_train" name="interest[]" value="ed_train">
+      <label for="ed_train"> Education & Training </label><br>
+      <input type="checkbox" id="photo" name="interest[]" value="photo">
+      <label for="photo"> Photography/Video Recording</label><br>
+      <input type="checkbox" id="cooking" name="interest[]" value="cooking">
+      <label for="cooking"> Cooking </label><br>
+      <input type="checkbox" id="teaching" name="interest[]" value="teaching">
+      <label for="teaching"> Teaching </label><br>
+      <input type="checkbox" id="music" name="interest[]" value="music">
+      <label for="music"> Music </label><br>
+
+      <p>I want to offer my help through: </p>
+      <input type="checkbox" id="admin" name="offer_help[]" value="admin">
+      <label for="admin"> Administrative support </label><br>
+      <input type="checkbox" id="commservices" name="offer_help[]" value="commservices">
+      <label for="commservices"> Community Services</label><br>
+      <input type="checkbox" id="event_organise" name="offer_help[]" value="event_organise">
+      <label for="event_organise"> Organize Events/Activities </label><br>
+      <input type="checkbox" id="marcom" name="offer_help[]" value="marcom">
+      <label for="marcom"> Marcom </label><br>
+      <input type="checkbox" id="befriend" name="offer_help[]" value="befriend">
+      <label for="befriend"> Befriending </label><br>
+      <input type="checkbox" id="fund_raiser" name="offer_help[]" value="fund_raiser">
+      <label for="fund_raiser"> Fund Raising Activites </label><br>
+    </section>
+
+    <section>
+      <label for="cur_occup">Current Occupation: </label>
+      <select id="cur_occup" name="cur_occup">
+        <option value="student">Student</option>
+        <option value="employed">Employed</option>
+        <option value="self_employed">Self-Employed</option>
+        <option value="unemployed">Unemployed</option>
+        <option value="retired">Retired</option>
+      </select>
+
+      <label for="medical_issue">Medical Issues: </label>
+      <select id="medical_issue" name="medical_issue" onChange='checkvalue(this.value)'>
+        <option value="no">no</option>
+        <option value="yes">yes</option>
+      </select>
+      <br /><input type="text" id="have_med_issue" placeholder="Please Specify... " name="have_med_issue"
+        style="display:none;" />
+
+      <label for="convict">Convicted of any offences: </label>
+      <select id="convict" name="convict" onChange='checkvalue(this.value)'>
+        <option value="no">no</option>
+        <option value="yes">yes</option>
+      </select>
+      <br /><input type="text" id="convict_sent" placeholder="Please Specify... " name="convict_sent"
+        style="display:none;" />
+
+    </section>
+
+    <section>
+      <label for="school">School Name: </label>
+      <input type="text" name='school' placeholder="School Name" />
+
+      <label for="qualif">Qualifications: </label>
+      <select id="qualif" name="qualif" onChange='checkvalue(this.value)'>
+        <option value="olvl">O levels</option>
+        <option value="nlvl">N Levels</option>
+        <option value="ITE_NTC">ITE/NTC</option>
+        <option value="diploma">Diploma</option>
+        <option value="alvl">A levels </option>
+        <option value="degree">Degree</option>
+        <option value="postgrad">Postgraduate</option>
+        <option value="others">Others</option>
+      </select>
+      <br /><input type="text" id="qualif_sent" placeholder="Please Specify... " name="qualif_sent"
+        style="display:none;" />
+
+    </section>
+
+    <section>
+      <label for="company">Company Name: </label>
+      <input type="text" name='company' placeholder="Company Name" />
+      <input type="text" name='company_occupation' placeholder="Occupation" />
+
+      <label for="volunteer_company"> Volunteering Company Name: </label>
+      <input type="text" name='volunteer_company' placeholder="Organisation Name" />
+      <input type="text" name='volunteer_remarks' placeholder="remarks" />
+
+    </section>
+
+    <section id='platform_know'>
+      <label for="platform_know">How did you heard of us?</label>
+      <select id="platform_know" name="platform_know" onChange='checkvalue(this.value)' >
+        <option value="website">BWS website</option>
+        <option value="events_activities">BWS Events/Activities </option>
+        <option value="newsletter">BWS Newsletter</option>
+        <option value="staff">BWS Staff</option>
+        <option value="friends">Friends</option>
+        <option value="school">School</option>
+        <option value="others">Others</option>
+      </select>
+      <br /><input type="text" id="platform_know_sent" placeholder="Please Specify... " name="platform_know_sent"
+        style="display:none;" />
+    </section>
+
+
+
+    <div class="button" id="prev">&larr; Previous</div>
+    <div class="button" id="next">Next &rarr;</div>
+    <div class='button' id='submit' style='padding:0px0px'><input type="submit" value=' Submit' ></div>
+  </form>
+  <script
+    src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src='signup.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <script> 
+   $(document).ready(function () {
+      var base_color = "rgb(230,230,230)";
+      var active_color = "rgb(237, 40, 70)";
+      var child = 1;
+      var length = $("section").length - 1;
+      $("#prev").addClass("disabled");
+      $("#submit").addClass("disabled");
+
+      $("section").not("section:nth-of-type(1)").hide();
+      $("section").not("section:nth-of-type(1)").css('transform', 'translateX(100px)');
+
+      var svgWidth = length * 200 + 24;
+      $("#svg_wrap").html(
+        '<svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 ' +
+        svgWidth +
+        ' 24" xml:space="preserve"></svg>');
+
+
+      function makeSVG(tag, attrs) {
+        var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+        for (var k in attrs) el.setAttribute(k, attrs[k]);
+        return el;
+      }
+
+      for (i = 0; i < length; i++) {
+        if (window.CP.shouldStopExecution(0)) break;
+        var positionX = 12 + i * 200;
+        var rect = makeSVG("rect", { x: positionX, y: 9, width: 200, height: 6 });
+        document.getElementById("svg_form_time").appendChild(rect);
+        // <g><rect x="12" y="9" width="200" height="6"></rect></g>'
+        var circle = makeSVG("circle", {
+          cx: positionX,
+          cy: 12,
+          r: 12,
+          width: positionX,
+          height: 6
+        });
+
+        document.getElementById("svg_form_time").appendChild(circle);
+      } window.CP.exitedLoop(0);
+
+      var circle = makeSVG("circle", {
+        cx: positionX + 200,
+        cy: 12,
+        r: 12,
+        width: positionX,
+        height: 6
+      });
+
+      document.getElementById("svg_form_time").appendChild(circle);
+
+      $('#svg_form_time rect').css('fill', base_color);
+      $('#svg_form_time circle').css('fill', base_color);
+      $("circle:nth-of-type(1)").css("fill", active_color);
+
+
+      $(".button").click(function () {
+        $("#svg_form_time rect").css("fill", active_color);
+        $("#svg_form_time circle").css("fill", active_color);
+        var id = $(this).attr("id");
+        if (id == "next") {
+          $("#prev").removeClass("disabled");
+          if (child >= length) {
+            $(this).addClass("disabled");
+            $('#submit').removeClass("disabled");
+          }
+          if (child <= length) {
+            child++;
+          }
+        } else if (id == "prev") {
+          $("#next").removeClass("disabled");
+          $('#submit').addClass("disabled");
+          if (child <= 2) {
+            $(this).addClass("disabled");
+          }
+          if (child > 1) {
+            child--;
+          }
+        }
+        var circle_child = child + 1;
+        $("#svg_form_time rect:nth-of-type(n + " + child + ")").css(
+          "fill",
+          base_color);
+
+        $("#svg_form_time circle:nth-of-type(n + " + circle_child + ")").css(
+          "fill",
+          base_color);
+
+        var currentSection = $("section:nth-of-type(" + child + ")");
+        currentSection.fadeIn();
+        currentSection.css('transform', 'translateX(0)');
+        currentSection.prevAll('section').css('transform', 'translateX(-100px)');
+        currentSection.nextAll('section').css('transform', 'translateX(100px)');
+        $('section').not(currentSection).hide();
+      });
+
+    });
+
+    function checkvalue() {
+      if (document.getElementById('medical_issue').value == 'yes') {
+
+        document.getElementById('have_med_issue').style.display = 'block';
+      } else {
+        document.getElementById('have_med_issue').style.display = 'none';
+      }
+      if (document.getElementById('convict').value == 'yes') {
+
+        document.getElementById('convict_sent').style.display = 'block';
+      } else {
+        document.getElementById('convict_sent').style.display = 'none';
+      }
+      if (document.getElementById('platform_know').value == 'others') {
+
+        document.getElementById('platform_know_sent').style.display = 'block';
+      } else {
+        document.getElementById('platform_know_sent').style.display = 'none';
+      }
+      if (document.getElementById('religion').value == 'others') {
+
+        document.getElementById('religion_sent').style.display = 'block';
+      } else {
+        document.getElementById('religion_sent').style.display = 'none';
+      }
+      if (document.getElementById('qualif').value == 'others') {
+
+        document.getElementById('qualif_sent').style.display = 'block';
+      } else {
+        document.getElementById('qualif_sent').style.display = 'none';
+      }
+      if (document.getElementById('race').value == 'others') {
+
+        document.getElementById('race_sent').style.display = 'block';
+      } else {
+        document.getElementById('race_sent').style.display = 'none';
+      }
+    }
+
+  </script>
+
+  
+
+
+
+</body>
+
+</html>
