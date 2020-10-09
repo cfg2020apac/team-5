@@ -1,5 +1,3 @@
-var xhttp = new XMLHttpRequest();
-
 async function init() {
     const loginform = document.getElementById("login");
     loginform.onsubmit = (e) => {

@@ -1,5 +1,4 @@
-userId = "QnnMBwySsSyNQ1MsVfuR";
-activityId = "ttd4xPYNkmZShxuLKvL4";
+let activityId = "ttd4xPYNkmZShxuLKvL4";
 
 async function getAllActivities() {
     const db = firebase.firestore();
