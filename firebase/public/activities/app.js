@@ -1,6 +1,7 @@
 userId = "QnnMBwySsSyNQ1MsVfuR";
 
 async function getAllActivities() {
+    const db = firebase.firestore();
     const collRef = db.collection("activities");
     const r = await collRef.get();
     const data = [];
