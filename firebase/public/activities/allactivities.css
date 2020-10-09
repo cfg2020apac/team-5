@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@400;700&display=swap');
+
+html {
+  height: 100%;
+  min-height: 800px;
+}
+
+h4 {
+    font-weight: 400;
+    padding-top: 0;
+    margin-top: 0;
+    font-family: 'Roboto Slab', serif;
+  }
+
+body {
+  background: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-family: 'Noto Sans', sans-serif;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+section {
+  text-align: left;
+  padding: 50px;
+  margin: 30px auto;
+  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.part-list {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.part-list thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: center;
+}
+.part-list th,
+.part-list td {
+    padding: 12px 15px;
+}
+.part-list tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.part-list tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.part-list tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+  
+  .a-div {
+    background-color: #3F51B5; /* Indogo 500 */
+    color: white;
+  }
+  
+  .a-table {
+    background-color: #673AB7; /* Deep Purple 500 */
+    color: white;
+  }
+  
+  .width-150 {
+    width: 150px;
+  }
+  
+  .background-color {
+    background-color: #311B92; /* Deep Purple 900 */
+  }
+  
+  .border-spacing-0 {
+    border-spacing: 0;
+  }
+  
+  .padding-0 {
+    padding: 0;
+  }
+  
+  .padding {
+    padding: 1em;
+  }
+  
+  .border {
+    border: 1em solid #D1C4E9; /* Deep Purple 100 */
+  }
+  
+  .margin {
+    margin: 1em;
+  }
+
+  .margin {
+    margin: 1em;
+  }
+.container1 {
+      text-align: center;
+      margin: 0 auto;
+    display:table
+  }

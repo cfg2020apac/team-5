@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="allActivities.css">
     <script defer src="/__/firebase/7.21.1/firebase-app.js"></script>
     <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
@@ -173,7 +174,7 @@
 //     document.getElementById("Location3").innerHTML = activities[2]["startBy"];
 // }
     </script>
-<h1 id="header">All Activities</h1>
+
 
 <!-- <div id="card-holder">
   <img src = "test" alt = "volunteer picture"><br/>
@@ -265,10 +266,10 @@ page_number = page_number - 1;
 </script>
 <script>
     no_of_pages = Math.ceil(activities.length/3);
-    document.write("<div class='container'>");
-    document.write("<ul class = 'pagination'>");
+    document.write("<div class='container1'>");
+    document.write("Page <ul class = 'pagination'>");
     for(j=1;j<=no_of_pages;j++){
-        document.write("<li><a href='./allActivities.html?page_number="+j+"'>"+j+"</a></li>");
+        document.write(" <li> <a class='page' href='./allActivities.html?page_number="+j+"'>   "+j  +"  </a> </li>");
     }
     document.write("</ul></div>");
 
