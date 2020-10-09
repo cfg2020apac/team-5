@@ -8,38 +8,23 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="viewsignups.css">
         <script defer src="/__/firebase/7.21.1/firebase-app.js"></script>
         <script defer src="/__/firebase/7.21.1/firebase-auth.js"></script>
         <script defer src="/__/firebase/7.21.1/firebase-firestore.js"></script>
         <script defer src="/__/firebase/init.js"></script>
-        <style>
-
-.header-text {
-    font-weight: bold;
-    text-align: left;
-}
-
-        .value-text {
-            font-weight: 300;
-            text-align: left;
-        }
-
-        #part-list {
-            margin: auto;
-            width: 70% !important;
-        }
-        </style>
+    
         <title>View Signups</title>
     </head>
 
     <body>
         <div class="d-flex flex-column">
             <div style='text-align:center;'>
-                <h5 class="mt-5" style="font-weight: bolder; font-size: 25px;">
+                <h4 class="mt-5" style="font-weight: bolder; font-size: 25px;">
                     View Signups
-                </h5>
+                </h4>
                 <br>
-
+                <section>
                 <table id = "part-list" class="table">
                     <thead class="thead-light">
                         <tr>
@@ -51,6 +36,7 @@
                     <tbody>
                     </tbody>
                 </table>
+                </section>
             </div>
         </div>
 
