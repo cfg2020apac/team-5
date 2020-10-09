@@ -23,20 +23,21 @@ async function getAllActivities() {
 }
 
 function createActivity(userId, activity) {
-    userId = firebase.auth().currentUser.uid
     const db = firebase.firestore();
     verifyAdmin(userId).then(result => {
         if (!result) {
             return;
         }
         console.log(activity);
+        var storageRef = require('@google-cloud/storage');
+        var picRef = storageRef.child(activity.image);
+        console.log(picRef);
         const doc = db.collection("activities").add(activity);
         console.log(doc.id);
     });
 }
 
 async function verifyAdmin(userId) {
-    userId = firebase.auth().currentUser.uid
     const db = firebase.firestore();
     doc = await db.collection("users").doc(userId).get();
     console.log(doc.data());
@@ -60,7 +61,6 @@ function editActivity(activityId, newActivity) {
 }
 
 function joinActivity(userId, activityId) {
-    userId = firebase.auth().currentUser.uid
     const db = firebase.firestore();
     db.collection("activities").doc(activityId).get().then(doc => {
         if (doc.data().participants.includes(userId)) {
@@ -74,7 +74,6 @@ function joinActivity(userId, activityId) {
 }
 
 function leaveActivity(userId, activityId) {
-    userId = firebase.auth().currentUser.uid
     const db = firebase.firestore();
     db.collection("activities").doc(activityId).update({
         participants : firebase.firestore.FieldValue.arrayRemove(userId)
