@@ -18,6 +18,7 @@ async function init() {
         }).catch((error) => {
             console.error(error);
         });
+        location.href = "activities/allActivities.html";
     }
     let user = firebase.auth().currentUser;
     console.log(user);
