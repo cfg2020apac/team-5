@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" type="image/png"
+    href="https://static.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link rel="shortcut icon" type="image/x-icon"
+    href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+  <link rel="mask-icon" type=""
+    href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+    color="#111" />
+
+
+  <title>Login</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Slab:wght@400;700&display=swap');
+
+    html {
+      height: 100%;
+      min-height: 800px;
+    }
+
+    body {
+      background: url('https://i.pinimg.com/originals/48/79/86/487986c17560a8ed1afdc55e480e5be2.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      text-align: center;
+      font-family: 'Noto Sans', sans-serif;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    h1 {
+      font-weight: 400;
+      padding-top: 0;
+      margin-top: 0;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    #svg_form_time {
+      height: 15px;
+      max-width: 80%;
+      margin: 40px auto 20px;
+      display: block;
+    }
+
+    #svg_form_time circle,
+    #svg_form_time rect {
+      fill: white;
+    }
+
+    .button {
+      background: rgb(237, 40, 70);
+      border-radius: 5px;
+      padding: 15px 25px;
+      display: inline-block;
+      margin: 10px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
+    }
+
+    .disabled {
+      display: none;
+    }
+
+    input[type=checkbox]+label {
+      display: block;
+      margin: 0.2em;
+      cursor: pointer;
+      padding: 0.2em;
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+    input[type=checkbox]+label:before {
+      content: "\2714";
+      border: 0.1em solid #000;
+      border-radius: 0.2em;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      padding-left: 0.2em;
+      padding-bottom: 0.3em;
+      margin-right: 0.2em;
+      vertical-align: bottom;
+      color: transparent;
+      transition: .2s;
+    }
+
+    input[type=checkbox]+label:active:before {
+      transform: scale(0);
+    }
+
+    input[type=checkbox]:checked+label:before {
+      background-color: MediumSeaGreen;
+      border-color: MediumSeaGreen;
+      color: #fff;
+    }
+
+    input[type=checkbox]:disabled+label:before {
+      transform: scale(1);
+      border-color: #aaa;
+    }
+
+    input[type=checkbox]:checked:disabled+label:before {
+      transform: scale(1);
+      background-color: #bfb;
+      border-color: #bfb;
+    }
+
+    section {
+      padding: 50px;
+      max-width: 300px;
+      margin: 30px auto;
+      background: white;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    select {
+      max-width: 300px;
+
+      margin: 30px auto;
+      background: white;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    input[type="submit"] {
+      background: none;
+      color: inherit;
+      border: none;
+      padding: 0;
+      font: inherit;
+      cursor: pointer;
+      outline: inherit;
+    }
+
+
+    input {
+      width: 100%;
+      margin: 7px 0px;
+      display: inline-block;
+      padding: 12px 25px;
+      box-sizing: border-box;
+      border-radius: 5px;
+      border: 1px solid lightgrey;
+      font-size: 1em;
+      font-family: inherit;
+      background: white;
+    }
+
+    p {
+      text-align: justify;
+      margin-top: 0;
+    }
+  </style>
+
+  <script>
+    window.console = window.console || function (t) { };
+    if (document.location.search.match(/type=embed/gi)) {
+      window.parent.postMessage("resize", "*");
+    }
+
+  </script>
+</head>
+
+
+<body translate="no">
+  <div id="svg_wrap"></div>
+
+  <h1>Welcome to Blossom World</h1>
+  <form method='POST'>
+    <section>
+      <p>Sign In</p>
+      <input type="text" name='email' placeholder="Email" />
+      <input type="password" name='password' placeholder="Password" />
+    </section>
+
+
+    <div class='button' id='submit'><input type="submit" value=' Log In  &rarr;' {background-color:transparent}></div>
+  </form>
+  <script src="../functions/index.js"></script>
+ 
+
+
+</body>
+
+</html>
