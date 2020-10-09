@@ -7,6 +7,7 @@ const firebase = require("firebase/app");
 const { auth } = require("firebase-admin");
 require("firebase/auth");
 require("firebase/firestore");
+
 const fbConfig = {
   apiKey: "AIzaSyB_jkxL1W76KmMju0FdH8gT_SscHblxC8o",
   authDomain: "humanitech-65d8d.firebaseapp.com",
@@ -16,7 +17,7 @@ const fbConfig = {
   messagingSenderId: "30014619295",
   appId: "1:30014619295:web:b8515e27dd4f8faa6b2caa",
   measurementId: "G-NCEC9Y34PW"
-};z
+};
 firebase.initializeApp(fbConfig);
 
 admin.initializeApp();
@@ -148,3 +149,4 @@ app.post('/activity', FBAuth, (req, res) => {
 
 require("./routes/user-reg")(app,db,firebase);
 exports.api = functions.https.onRequest(app);
+
