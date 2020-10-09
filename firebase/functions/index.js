@@ -150,4 +150,3 @@ app.post('/activity', FBAuth, (req, res) => {
 
 require("./routes/user-reg")(app,db,firebase);
 exports.api = functions.https.onRequest(app);
-
