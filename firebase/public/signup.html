@@ -205,7 +205,6 @@ margin-top:0;
 </section>
 
 <section>
-    <p>Basic Information</p>
     <label for="gender">Gender: </label>
     <select id="gender" name="gender" >
     <option value="male">Male</option>
@@ -225,7 +224,6 @@ margin-top:0;
 </section>
 
 <section>
-    <p>Personal Information</p>
     <label for="race">Race: </label>
     <select id="race" name="race" onChange='checkvalue(this.value)'>
     <option value="chinese">Chinese</option>
@@ -321,7 +319,7 @@ margin-top:0;
 </section>
 
 <section>
-      <label for="cur_occup">Current Occupation</label>
+      <label for="cur_occup">Current Occupation: </label>
       <select id="cur_occup" name="cur_occup">
       <option value="student">Student</option>
       <option value="employed">Employed</option>
@@ -347,7 +345,7 @@ margin-top:0;
 </section>
 
 <section>
-    <p>School Name</p>
+<label for="school">School Name: </label>
   <input type="text" name = 'school'  placeholder="School Name" />
 
   <label for="qualif">Qualifications </label>
@@ -366,15 +364,14 @@ margin-top:0;
 </section>
 
 <section>
-    <p>Employment Information</p>
+  <label for="company">Company Name: </label>
   <input type="text" name = 'company'  placeholder="Company Name" />
   <input type="text" name = 'company_occupation'  placeholder="Occupation" />
 
-  <p>Volunteering History </p>
+  <label for="volunteer_company"> Volunteering Company Name: </label>
   <input type="text" name = 'volunteer_company'  placeholder="Organisation Name" />
   <input type="text" name = 'volunteer_remarks'  placeholder="remarks" />
-
-
+  
 </section>
 
 <section>
@@ -403,6 +400,7 @@ margin-top:0;
   
       <script id="rendered-js" >
 $(document).ready(function () {
+
   var base_color = "rgb(230,230,230)";
   var active_color = "rgb(237, 40, 70)";
 
