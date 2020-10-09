@@ -29,5 +29,5 @@ window.onload = async(event) => {
 };
 
 function signup() {
-    joinActivity(userId, activityId);
+    joinActivity("WdEP7GsDztjOTlUFhpaj", activityId);
 }

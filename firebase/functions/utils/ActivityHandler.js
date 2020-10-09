@@ -17,7 +17,7 @@ const ActivityHandler = {
 
     createActivity : function(userId, activity) {
         const db = admin.firestore();
-        verifyAdmin(userId).then(result => {
+        this.verifyAdmin(userId).then(result => {
             if (!result) {
                 return;
             }

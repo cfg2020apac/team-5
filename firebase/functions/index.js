@@ -74,9 +74,9 @@ app.get("/get-all-activities", async (req, res) => {
 });
 
 app.post("/create-activity", async (req, res) => {
-    const { userId, activity } = req.query;
+    const { userId, activity } = req.body;
     try {
-        createActivity(userId, activity);
+        ActivityHandler.createActivity(userId, activity);
         console.log("Write Success");
         return res.status(200).end();
     } catch (e) {
@@ -86,7 +86,7 @@ app.post("/create-activity", async (req, res) => {
 });
 
 app.post("/edit-activity", async (req, res) => {
-    const { activityId, newActivity } = req.query;
+    const { activityId, newActivity } = req.body;
     try {
         editActivity(activityId, newActivity);
         console.log("Write Success");
@@ -98,7 +98,7 @@ app.post("/edit-activity", async (req, res) => {
 });
 
 app.post("/join-activity", async (req, res) => {
-    const { userId, activityId } = req.query;
+    const { userId, activityId } = req.body;
     try {
         joinActivity(userId, activityId);
         console.log("Write Success");
@@ -110,7 +110,7 @@ app.post("/join-activity", async (req, res) => {
 });
 
 app.post("/leave-activity", async (req, res) => {
-    const { userId, activityId } = req.query;
+    const { userId, activityId } = req.body;
     try {
         leaveActivity(userId, activityId);
         console.log("Write Success");

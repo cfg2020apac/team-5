@@ -1,11 +1,15 @@
 userId = "QnnMBwySsSyNQ1MsVfuR";
 
-async function init() {
-    const db = firebase.firestore();
-    documents = await db.collection("activities").get();
-    documents.forEach(doc => {
-        console.log(doc.data());
+async function getAllActivities() {
+    const collRef = db.collection("activities");
+    const r = await collRef.get();
+    const data = [];
+    r.forEach(doc => {
+        const activity = doc.data();
+        activity["id"] = doc.id;
+        data.push(activity);
     });
+    return data;
 }
 
 function createActivity(userId, activity) {
@@ -33,24 +37,47 @@ async function verifyAdmin(userId) {
 
 function editActivity(activityId, newActivity) {
     const db = firebase.firestore();
-    if (!verifyAdmin(userId)) {
-        return
-    }
-
-    db.collection("activities").doc(activityId).update(newActivity);
+    verifyAdmin(userId).then(result => {
+        if (!result) {
+            return
+        }
+        db.collection("activities").doc(activityId).update(newActivity);
+    });
 }
 
 function joinActivity(userId, activityId) {
     const db = firebase.firestore();
-    //if (verifyAdmin(userId)) {
-    //return
-    //}
-    db.collection("activities").doc(activityId).update({
-        participants : firebase.firestore.FieldValue.arrayUnion(userId)
+    db.collection("activities").doc(activityId).get().then(doc => {
+        if (doc.data().participants.includes(userId)) {
+            throw "Already signed up";
+        } else {
+            db.collection("activities").doc(activityId).update({
+                participants : firebase.firestore.FieldValue.arrayUnion(userId)
+            });
+        }
     });
 }
 
-function LeaveActivity() {
+function leaveActivity(userId, activityId) {
+    const db = firebase.firestore();
+    db.collection("activities").doc(activityId).update({
+        participants : firebase.firestore.FieldValue.arrayRemove(userId)
+    });
+}
+
+async function viewSignups(activityId) {
+    const db = firebase.firestore();
+    const peopleList = [];
+    const doc = await db.collection("activities").doc(activityId).get();
+    console.log(doc.data());
+    console.log(doc.data().participants)
+
+    for (const partId of doc.data().participants) {
+        partData = await db.collection("users").doc(partId).get();
+        console.log(partData.data())
+        peopleList.push(partData.data());
+    };
+    return peopleList;
 }
 
 async function getActivity(activityId) {
