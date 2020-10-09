@@ -36,6 +36,8 @@ async function verifyAdmin(userId) {
 }
 
 function editActivity(activityId, newActivity) {
+    console.log(activityId);
+    console.log(newActivity);
     const db = firebase.firestore();
     verifyAdmin(userId).then(result => {
         if (!result) {
@@ -84,4 +86,16 @@ async function getActivity(activityId) {
     const db = firebase.firestore();
     let doc = await db.collection("activities").doc(activityId).get();
     return doc.data();
+}
+
+function delimitArray(list) {
+    let string = "";
+    list.forEach(tag => {
+        string = tag + "," + string;
+    });
+    return string;
+}
+
+function csvToArray(string) {
+    return string.split(",");
 }

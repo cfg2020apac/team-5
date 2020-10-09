@@ -5,10 +5,8 @@ function submitActivity() {
     activity.endBy = document.getElementById("activity_enddate").value;
     activity.description = document.getElementById("activity_description").value;
     activity.location = document.getElementById("activity_location").value;
-    activity.tags = document.getElementById("activity_tags").value;
+    activity.tags = delimitArray(document.getElementById("activity_tags").value);
     activity.image = document.getElementById("activity_image").value;
-
     createActivity(userId, activity);
-
     console.log(activity);
 }
