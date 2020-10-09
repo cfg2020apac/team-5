@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+
+    <style>
+        .header-text {
+            font-weight: bold;
+            text-align: right;
+        }
+        
+        .value-text {
+            font-weight: 300;
+            text-align: left;
+        }
+    </style>
+    <title>View Activity Details</title>
+</head>
+
+<body>
+    <script src="viewActivity.js"></script>
+    <div class="d-flex justify-content-center">
+        <div class="card" style="width: 80%; margin-top: 20px;">
+            <div class="card-body" style="text-align:center;">
+
+                <img id="activity_image" class="card-img-top mb-5" alt="no image found" style="width: 200px; height: 200px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">Title of Activity</h5>
+                        </div>
+                        <div class="col-8">
+                            <h5 id="activity_name" class="value-text"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">End Date</h5>
+                        </div>
+                        <div class="col-8">
+                            <h5 class="value-text" id="activity_startdate"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">Start Date</h5>
+                        </div>
+                        <div class="col-8">
+                            <h5 class="value-text" id="activity_enddate"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">Location</h5>
+                        </div>
+                        <div class="col-8">
+                            <h5 class="value-text" id="activity_location"></h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">Description</h5>
+                        </div>
+                        <div class="col-8" style="text-align:justify; text-justify: inter-word;">
+                            <p class="card-text" id="activity_description"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">
+                            <h5 class="header-text">Tags</h5>
+                        </div>
+                        <div id="container-tags" class="col-8" style="text-align:justify; text-justify: inter-word;">
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-primary mt-5" id="sign-up-btn" onclick="signup()">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+
+</html>
