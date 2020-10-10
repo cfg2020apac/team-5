@@ -29,11 +29,7 @@ function createActivity(userId, activity) {
             return;
         }
         console.log(activity);
-        var storageRef = firebase.storage();
-        var picRef = storageRef.child(activity.image);
-        console.log(picRef);
-        const doc = db.collection("activities").add(activity);
-        console.log(doc.id);
+        db.collection("activities").add(activity);
     });
 }
 
@@ -57,6 +53,7 @@ function editActivity(activityId, newActivity) {
             return
         }
         db.collection("activities").doc(activityId).update(newActivity);
+        location.href = "../allActivities.html";
     });
 }
 

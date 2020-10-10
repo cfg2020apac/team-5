@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Swagger UI</title>
+    <title>Blossom Log In</title>
     <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
     <link
         rel="icon"
@@ -38,25 +38,8 @@ html {
   </head>
 
   <body>
-      <div id="swagger-ui"></div>
-
-      <script src="./swagger-ui-bundle.js" charset="UTF-8"></script>
-      <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"></script>
       <script>
-          window.onload = function () {
-              // Begin Swagger UI call region
-              const ui = SwaggerUIBundle({
-                  url: "swagger.yaml",
-                  dom_id: "#swagger-ui",
-                  deepLinking: true,
-                  presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
-                  plugins: [SwaggerUIBundle.plugins.DownloadUrl],
-                  layout: "StandaloneLayout",
-              });
-              // End Swagger UI call region
-
-              window.ui = ui;
-          };
+          location.href = "localhost:5000/login.html";
       </script>
       <script src="app.js"></script>
   </body>

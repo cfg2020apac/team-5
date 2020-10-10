@@ -45,8 +45,8 @@ window.onload = async(event) => {
         }
         activityStatus = !activityStatus;
     });
-
+    
     document.getElementById("edit").addEventListener("click", () => {
-        location.href = "../editingActivity/editActivity.html?" + activities[i].id;
+        location.href = "../editingActivity/editActivity.html?" + activityIdLoad;
     });
 };

@@ -11,6 +11,7 @@ async function init() {
                 })
                 .then(token => {
                     console.log(token);
+                    location.href = "activities/allActivities.html";
                 })
                 .catch(err => {
                     console.error(err);
@@ -18,7 +19,6 @@ async function init() {
         }).catch((error) => {
             console.error(error);
         });
-        location.href = "activities/allActivities.html";
     }
     let user = firebase.auth().currentUser;
     console.log(user);
