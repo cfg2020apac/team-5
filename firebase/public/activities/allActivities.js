@@ -5,6 +5,7 @@ getAllActivities().then(async activities => {
 
     if (isAdmin) {
         document.getElementById("option3").classList.remove("hidden");
+        document.getElementById("option2").classList.add("hidden");
     }
 
     let currPath = window.location.href

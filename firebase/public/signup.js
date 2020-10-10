@@ -1,3 +1,3 @@
 document.getElementById("submit").addEventListener("click", (e) => {
-    location.href = "login.html"
+    location.href = "http://localhost:5000"
 });
