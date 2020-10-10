@@ -1,6 +1,12 @@
 var activities = []
 
-getAllActivities().then(activities => {
+getAllActivities().then(async activities => {
+    const isAdmin = await verifyAdmin(userId);
+
+    if (isAdmin) {
+        document.getElementById("option3").classList.remove("hidden");
+    }
+
     let currPath = window.location.href
     console.log(currPath)
     var idx = currPath.indexOf("?")
