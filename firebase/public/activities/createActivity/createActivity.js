@@ -13,5 +13,4 @@ function submitActivity() {
     activity.tags = csvToArray(document.getElementById("activity_tags").value);
     activity.image = document.getElementById("activity_image").value;
     createActivity(userId, activity);
-    location.href = "../allActivities.html";
 }

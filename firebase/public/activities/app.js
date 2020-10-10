@@ -53,7 +53,6 @@ function editActivity(activityId, newActivity) {
             return
         }
         db.collection("activities").doc(activityId).update(newActivity);
-        location.href = "../allActivities.html";
     });
 }
 
